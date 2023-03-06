@@ -4,30 +4,51 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] float moveSpeed;
+    private Rigidbody2D rb;
+    public float moveSpeed;
+    public float rbacceleration = 7;
+    public float rbdecceleration = 7;
     private bool facingRight = true;
+    public float velPower;
+    public int moveInput = 0;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            moveInput = 1;
+        }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            moveInput = -1;
+        }
+
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            moveInput = 0;
+        }
+        else if (Input.GetKeyUp(KeyCode.A))
+        {
+            moveInput = 0;
+        }
+
+        //calculate the direction we want to move in and our desired velocity
+        float targetSpeed = moveInput * moveSpeed;
+        //calculate difference between current velocity and desired velocity
+        float speedDif = targetSpeed - rb.velocity.x;
+        //Calculate if our moveInput is 0 it will de accelerate, anything higher than 00.1 will make us accelerate
+        float accelRate = (Mathf.Abs(targetSpeed) > 0,01f) ? rbacceleration : rbdecceleration;
         
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-            FacingRight = true;
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            transform.position += Vector3.right * -moveSpeed * Time.deltaTime;
-            FacingRight = false;
-        }
+        float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
+        rb.AddForce(movement * Vector2.right);
     }
     public bool FacingRight
         {
