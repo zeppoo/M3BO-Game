@@ -27,37 +27,37 @@ public class JumpController : MonoBehaviour
 
 
     void Update()
-    {
+    { 
 
         if(Input.GetButtonDown("Jump") && isGrounded())
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            rb.velocity = new Vector2(rb.velocity.x, jumpPower);//Velocity van character is huidige X positie, en y is jumppower
             isJumping = true;
-            jumpCounter = 0;
+            jumpCounter = 0; //aantal seconden dat spring true is
         }
 
-        if(rb.velocity.y>0 && isJumping)
+        if(rb.velocity.y>0 && isJumping)//terwijl je spatiebalk ingedrukt hebt
         {
-            jumpCounter += Time.deltaTime;
-            if(jumpCounter>jumpTime) isJumping = false;
+            jumpCounter += Time.deltaTime;//jumpCounter word opgeteld met Aantal tijd dat voorbij is
+            if(jumpCounter>jumpTime) isJumping = false;//zodra jumpcounter groter word dan de maximale jumptijd kom je niet meer hoger
 
-            rb.velocity += vecGravity * jumpMultiplier * Time.deltaTime;
+            rb.velocity += vecGravity * jumpMultiplier * Time.deltaTime;//Velocity word  
         }
 
         if (Input.GetButtonUp("Jump"))
         {
-            isJumping = false;
+            isJumping = false;//when you release jump button
         }
 
         if (rb.velocity.y < 0)
         {
-            rb.velocity -= vecGravity * fallMultiplier * Time.deltaTime;
+            rb.velocity -= vecGravity * fallMultiplier * Time.deltaTime;// if velocity is negative, activate fallMoultiplier
         }
         
     }
 
     bool isGrounded()
     {
-        return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1.8f, 0.3f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+        return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1.8f, 0.3f), CapsuleDirection2D.Horizontal, 0, groundLayer);//checks if invisible capsule collider is on the groundlayer
     }
 }
