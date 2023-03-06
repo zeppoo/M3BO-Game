@@ -18,6 +18,7 @@ public class JumpController : MonoBehaviour
 
     bool isJumping;
     float jumpCounter;
+    bool doubleJump;
 
     void Start()
     {
@@ -29,12 +30,20 @@ public class JumpController : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetButtonDown("Jump") && isGrounded())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-            isJumping = true;
-            jumpCounter = 0;
-        }
+        if(Input.GetButtonDown("Jump"))
+            if (isGrounded())
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+                //Er wordt een nieuwe locatie als doel gesteld. X is huidige horizontale snelheid. Y is kracht van jump
+                isJumping = true;
+                doubleJump = true;
+                jumpCounter = 0;
+            }
+            else if (doubleJump)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+                doubleJump = false;
+            }
 
         if(rb.velocity.y>0 && isJumping)
         {
