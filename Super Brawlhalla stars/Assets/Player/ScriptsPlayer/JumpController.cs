@@ -30,7 +30,6 @@ public class JumpController : MonoBehaviour
     void Update()
     { 
 
-<<<<<<< HEAD:Super Brawlhalla stars/Assets/Player/ScriptsPlayer/JumpController.cs
         if(Input.GetButtonDown("Jump"))
             if (isGrounded())
             {
@@ -45,14 +44,6 @@ public class JumpController : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, jumpPower);
                 doubleJump = false;
             }
-=======
-        if(Input.GetButtonDown("Jump") && isGrounded())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);//Velocity van character is huidige X positie, en y is jumppower
-            isJumping = true;
-            jumpCounter = 0; //aantal seconden dat spring true is
-        }
->>>>>>> 82aea2b4203e428272b5f6ffd85064339367940c:Super Brawlhalla stars/Assets/JumpController.cs
 
         if(rb.velocity.y>0 && isJumping)//terwijl je spatiebalk ingedrukt hebt
         {
