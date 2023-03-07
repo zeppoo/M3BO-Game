@@ -25,10 +25,12 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             moveInput = 1;
+            FacingRight = true;
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
             moveInput = -1;
+            FacingRight = false;
         }
 
         if (Input.GetKeyUp(KeyCode.D))
@@ -45,8 +47,7 @@ public class Movement : MonoBehaviour
         //calculate difference between current velocity and desired velocity
         float speedDif = targetSpeed - rb.velocity.x;
         //Calculate if our moveInput is 0 it will de accelerate, anything higher than 00.1 will make us accelerate
-        float accelRate = (Mathf.Abs(targetSpeed) > 0,01f) ? rbacceleration : rbdecceleration;
-        
+        float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? rbacceleration : rbdecceleration;
         float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
         rb.AddForce(movement * Vector2.right);
     }
