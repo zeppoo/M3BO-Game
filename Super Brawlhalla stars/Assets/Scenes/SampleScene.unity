@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b1131dd01ec5a146a449db7c55662ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmgCounter: 0
+  dmgCounter: 1
   knockbackPower: 7
   knockbackPowerUp: 6
   maxHealth: 100
