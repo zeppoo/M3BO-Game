@@ -8,6 +8,7 @@ public class Attack : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask Enemies;
     public float attackDamage;
+    public float attackCooldown;
 
     // Start is called before the first frame update
     void Start()
@@ -18,8 +19,9 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0) && attackCooldown == 0)
         {
+            attackCooldown = 2;
             attack();
         }
     }
@@ -33,6 +35,11 @@ public class Attack : MonoBehaviour
             Debug.Log("Succesful hit");
 
             enemy.GetComponent<EnemyHP>().TakeDamage(attackDamage);
+        }
+
+        while (attackCooldown > 0)
+        {
+            attackCooldown -= Time.deltaTime;
         }
     }
 

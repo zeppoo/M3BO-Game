@@ -18,6 +18,7 @@ public class JumpController : MonoBehaviour
 
     bool isJumping;
     float jumpCounter;
+    bool firstJump;
     bool doubleJump;
 
     void Start()
@@ -31,11 +32,12 @@ public class JumpController : MonoBehaviour
     { 
 
         if(Input.GetButtonDown("Jump"))
-            if (isGrounded())
+            if (firstJump == false)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpPower);
                 //Er wordt een nieuwe locatie als doel gesteld. X is huidige horizontale snelheid. Y is kracht van jump
                 isJumping = true;
+                firstJump = true;
                 doubleJump = true;
                 jumpCounter = 0;
             }
@@ -61,6 +63,11 @@ public class JumpController : MonoBehaviour
         if (rb.velocity.y < 0)
         {
             rb.velocity -= vecGravity * fallMultiplier * Time.deltaTime;// if velocity is negative, activate fallMoultiplier
+        }
+
+        if (isJumping == false && isGrounded())
+        {
+            firstJump = false;
         }
         
     }
