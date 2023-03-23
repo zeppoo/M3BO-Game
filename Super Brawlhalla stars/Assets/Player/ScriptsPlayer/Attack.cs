@@ -19,11 +19,7 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0) && attackCooldown == 0)
-        {
-            attackCooldown = 2;
-            attack();
-        }
+        
     }
 
     void attack()
@@ -37,10 +33,6 @@ public class Attack : MonoBehaviour
             enemy.GetComponent<EnemyHP>().TakeDamage(attackDamage);
         }
 
-        while (attackCooldown > 0)
-        {
-            attackCooldown -= Time.deltaTime;
-        }
     }
 
     void OnDrawGizmosSelected()
