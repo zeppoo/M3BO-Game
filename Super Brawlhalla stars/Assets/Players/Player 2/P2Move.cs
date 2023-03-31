@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class P2Move : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public float moveSpeed;
-    public float rbacceleration = 7;
-    public float rbdecceleration = 7;
+    public float moveSpeed = 10;
+    public float rbacceleration = 5;
+    public float rbdecceleration = 5;
     private bool facingRight = true;
     public float velPower;
     public int moveInput = 0;
@@ -22,25 +22,22 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             moveInput = 1;
             FacingRight = true;
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             moveInput = -1;
             FacingRight = false;
         }
 
-        if (Input.GetKeyUp(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow) == false && Input.GetKey(KeyCode.LeftArrow) == false)
         {
             moveInput = 0;
         }
-        else if (Input.GetKeyUp(KeyCode.A))
-        {
-            moveInput = 0;
-        }
+     
 
         //calculate the direction we want to move in and our desired velocity
         float targetSpeed = moveInput * moveSpeed;
@@ -51,6 +48,7 @@ public class Movement : MonoBehaviour
         float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
         rb.AddForce(movement * Vector2.right);
     }
+
     public bool FacingRight
         {
             get {return facingRight;}

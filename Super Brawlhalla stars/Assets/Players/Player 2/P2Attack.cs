@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : MonoBehaviour
+public class P2Attack : MonoBehaviour
 {
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public bool attackStat;
-    public LayerMask Enemies;
+    public LayerMask PlayerGround;
     public float attackDamage;
     public float attackCooldown = 0.7f;
     public float attackCounter;
@@ -24,6 +24,7 @@ public class Attack : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && attackStat == true)
         {
+            
             attackStat = false;
             attack();
         }
@@ -42,13 +43,13 @@ public class Attack : MonoBehaviour
     void attack()
     {
         
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, Enemies);
-
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, PlayerGround);
+        Debug.Log(hitEnemies);
         foreach(Collider2D enemy in hitEnemies)
         {
             Debug.Log("Succesful hit");
 
-            enemy.GetComponent<EnemyHP>().TakeDamage(attackDamage);
+            enemy.GetComponent<P1Health>().TakeDamage(attackDamage);
         }
 
     }
@@ -61,4 +62,3 @@ public class Attack : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
-

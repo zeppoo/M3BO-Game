@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpController : MonoBehaviour
+public class P2Jump : MonoBehaviour
 {
     private Rigidbody2D rb;
 
@@ -31,7 +31,7 @@ public class JumpController : MonoBehaviour
     void Update()
     { 
 
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetKeyDown(KeyCode.UpArrow))
             if (firstJump == false)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpPower);
@@ -55,7 +55,7 @@ public class JumpController : MonoBehaviour
             rb.velocity += vecGravity * jumpMultiplier * Time.deltaTime;//Velocity word  
         }
 
-        if (Input.GetButtonUp("Jump"))
+        if (Input.GetKeyUp(KeyCode.UpArrow))
         {
             isJumping = false;//when you release jump button
         }

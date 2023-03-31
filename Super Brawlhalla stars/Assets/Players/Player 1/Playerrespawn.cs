@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Respawn : MonoBehaviour
+public class Playerrespawn : MonoBehaviour
 {
     public Transform checkpoint;
     // Start is called before the first frame update
