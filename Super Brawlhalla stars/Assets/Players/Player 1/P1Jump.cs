@@ -29,8 +29,7 @@ public class P1Jump : MonoBehaviour
 
 
     void Update()
-    { 
-
+    {
         if(Input.GetKeyDown(KeyCode.W))
             if (firstJump == false)
             {
@@ -62,13 +61,19 @@ public class P1Jump : MonoBehaviour
 
         if (rb.velocity.y < 0)
         {
-            rb.velocity -= vecGravity * fallMultiplier * Time.deltaTime;// if velocity is negative, activate fallMoultiplier
+            rb.velocity -= vecGravity * fallMultiplier * Time.deltaTime;// if velocity is negative, activate fallMultiplier
         }
 
         if (isJumping == false && isGrounded())
         {
             firstJump = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            fallMultiplier *= 4;
+        } else if (Input.GetKeyUp(KeyCode.S)){fallMultiplier /= 4;}
         
     }
 

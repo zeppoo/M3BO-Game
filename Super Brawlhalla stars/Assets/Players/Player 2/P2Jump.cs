@@ -69,6 +69,12 @@ public class P2Jump : MonoBehaviour
         {
             firstJump = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            fallMultiplier *= 4;
+        } else if (Input.GetKeyUp(KeyCode.DownArrow)){fallMultiplier /= 4;}
         
     }
 

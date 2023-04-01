@@ -5,7 +5,7 @@ using UnityEngine;
 public class P2Move : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public float moveSpeed = 10;
+    public float moveSpeed = 20;
     public float rbacceleration = 5;
     public float rbdecceleration = 5;
     private bool facingRight = true;

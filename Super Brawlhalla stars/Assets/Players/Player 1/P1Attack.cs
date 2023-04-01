@@ -12,7 +12,7 @@ public class P1Attack : MonoBehaviour
     public bool attackStat;
     public LayerMask PlayerGround;
     public float attackDamage;
-    public float attackCooldown = 0.7f;
+    public float attackCooldown = 0.3f;
     public float attackCounter;
     public GameObject hand;
 
