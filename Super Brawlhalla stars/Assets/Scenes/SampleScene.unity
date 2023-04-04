@@ -197,7 +197,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -708,8 +708,8 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -25, y: -15}
-  - {x: -25, y: 15}
-  - {x: 25, y: 15}
+  - {x: -25, y: 20}
+  - {x: 25, y: 20}
   - {x: 25, y: -15}
   - {x: -25, y: -15}
   m_AdjacentStartPoint: {x: 0, y: 0}
@@ -771,7 +771,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764036842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1, y: 0.5, z: 0}
+  m_LocalPosition: {x: 1.6, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1087,8 +1087,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 942672887}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.7432, y: -3.0723252, z: 0.02704048}
-  m_LocalScale: {x: 20, y: 1, z: 1}
+  m_LocalPosition: {x: -4.9832, y: -5.8394, z: 0.02704048}
+  m_LocalScale: {x: 19.52, y: 6.5341, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 790266377}
@@ -1665,7 +1665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   rbacceleration: 13
-  rbdecceleration: 17
+  rbdecceleration: 1
   velPower: 0.4
   moveInput: 0
 --- !u!114 &1466468519
@@ -1701,8 +1701,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmgCounter: 5
-  knockbackPower: 8
-  knockbackPowerUp: 5
+  knockbackPower: 7
+  knockbackPowerUp: 6
   maxHealth: 100
   attacker: {fileID: 1593969748}
 --- !u!114 &1466468521
@@ -1727,7 +1727,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   attackDamage: 0.2
-  attackCooldown: 0.4
+  attackCooldown: 0.2
   attackCounter: 0
   hand: {fileID: 1896968969}
 --- !u!70 &1466468522
@@ -1905,10 +1905,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c2ad9d9cd5147419708602fe0ba7fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  rbacceleration: 5
+  moveSpeed: 20
+  rbacceleration: 13
   rbdecceleration: 5
-  velPower: 0.3
+  velPower: 0.4
   moveInput: 0
 --- !u!114 &1593969750
 MonoBehaviour:
@@ -1950,11 +1950,11 @@ MonoBehaviour:
   attackRange: 0.3
   attackStat: 0
   attackDamage: 0.2
-  attackCooldown: 0.3
+  attackCooldown: 0.2
   attackCounter: 0
   DamageCollisions:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 256
 --- !u!114 &1593969752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1968,8 +1968,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmgCounter: 5
-  knockbackPower: 8
-  knockbackPowerUp: 5
+  knockbackPower: 7
+  knockbackPowerUp: 6
   maxHealth: 100
   attacker: {fileID: 1466468508}
 --- !u!114 &1593969753
@@ -2171,7 +2171,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090227203}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0999999, y: 0.5, z: 0}
+  m_LocalPosition: {x: 1.6, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2252,7 +2252,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.33191752, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

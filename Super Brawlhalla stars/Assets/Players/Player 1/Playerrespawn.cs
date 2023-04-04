@@ -5,10 +5,11 @@ using UnityEngine;
 public class Playerrespawn : MonoBehaviour
 {
     public Transform checkpoint;
+    private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -24,6 +25,8 @@ public class Playerrespawn : MonoBehaviour
         {
             // Disables the Collider2D component
             transform.position = new Vector3(checkpoint.position.x, checkpoint.position.y, checkpoint.position.z);
+            rb.velocity = new Vector3(0,0,0);
+            
         }
     }
 }
