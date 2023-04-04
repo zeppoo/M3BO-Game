@@ -17,7 +17,7 @@ public class P2Attack : MonoBehaviour
     public float attackCooldown = 0.3f;
     public float attackCounter;
 
-    public LayerMask PlayerGround;
+    public LayerMask DamageCollisions;
 
     // Start is called before the first frame update
     void Start()
@@ -62,7 +62,7 @@ public class P2Attack : MonoBehaviour
     void attack()
     {
         
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, PlayerGround);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, DamageCollisions);
         Debug.Log(hitEnemies);
         foreach(Collider2D enemy in hitEnemies)
         {
