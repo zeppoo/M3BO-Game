@@ -7,11 +7,13 @@ public class P1Health : MonoBehaviour
     public float dmgCounter;
     public float knockbackPower;
     public float knockbackPowerUp;
-    private Rigidbody2D rb;
     public int maxHealth = 100;
     int currentHealth;
-    public Transform attacker;
     int attackPosition = 0;
+
+    public Transform attacker;
+    private Rigidbody2D rb;
+    
     // Start is called before the first frame update
     void Start()
     {

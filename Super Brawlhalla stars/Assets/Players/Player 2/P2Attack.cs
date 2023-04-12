@@ -5,6 +5,8 @@ using UnityEngine;
 public class P2Attack : MonoBehaviour
 {
     public GameObject hand;
+    private P1Health hpScript;
+
 
     public Transform upAttack;
     public Transform frontAttack;
@@ -23,6 +25,7 @@ public class P2Attack : MonoBehaviour
     void Start()
     {
         hand = GameObject.Find("P2 Hand");
+        hpScript = GameObject.Find("Player1").GetComponent<P1Health>();
     }
 
     // Update is called once per frame
@@ -63,25 +66,24 @@ public class P2Attack : MonoBehaviour
     {
         
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, DamageCollisions);
-        Debug.Log(hitEnemies);
         foreach(Collider2D enemy in hitEnemies)
         {
             Debug.Log("Succesful hit");
             if (attackPoint == upAttack)
             {
-                enemy.GetComponent<P1Health>().knockbackPowerUp = 10;
-                enemy.GetComponent<P1Health>().knockbackPower = 1;
+                hpScript.knockbackPowerUp = 10;
+                hpScript.knockbackPower = 1;
             } else if (attackPoint == downAttack)
             {
-                enemy.GetComponent<P1Health>().knockbackPowerUp = -2;
-                enemy.GetComponent<P1Health>().knockbackPower = 2;
+                hpScript.knockbackPowerUp = -2;
+                hpScript.knockbackPower = 2;
             } else if (attackPoint == frontAttack)
             {
-                enemy.GetComponent<P1Health>().knockbackPowerUp = 5;
-                enemy.GetComponent<P1Health>().knockbackPower = 8;
+                hpScript.knockbackPowerUp = 5;
+                hpScript.knockbackPower = 8;
             }
 
-            enemy.GetComponent<P1Health>().TakeDamage(attackDamage);
+            hpScript.TakeDamage(attackDamage);
         }
 
     }
