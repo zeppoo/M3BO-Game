@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2996f38242d12a44dbf6ae02c1e3b72e
+guid: e68d0863a48555d4ebdaf9aa88e3ef27
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character 1 -accel_0
+      name: Player 2-attack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 738fab195a1617f4ca4ff19a735bd037
-      internalID: -61902779
+      spriteID: 4271f53ed92b1c545bbf7398dbd7ef11
+      internalID: -845970115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character 1 -accel_1
+      name: Player 2-attack_1
       rect:
         serializedVersion: 2
         x: 160
@@ -140,8 +140,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 612dab3089a6ba74680a53aabc9e167e
-      internalID: 1752367459
+      spriteID: d1e7ba8f49a184545be3306a11301466
+      internalID: -2099280483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player 2-attack_2
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 586971d90c190b44c9acd328d8044b2d
+      internalID: 1895370576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player 2-attack_3
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65c52d561f4cb064cae067e6453ef79e
+      internalID: -265546665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player 2-attack_4
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 708dc25dfccaaba46a61e830e8811bcb
+      internalID: -1130095948
       vertices: []
       indices: 
       edges: []
@@ -157,8 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Character 1 -accel_0: -61902779
-      Character 1 -accel_1: 1752367459
+      Player 2-attack_0: -845970115
+      Player 2-attack_1: -2099280483
+      Player 2-attack_2: 1895370576
+      Player 2-attack_3: -265546665
+      Player 2-attack_4: -1130095948
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

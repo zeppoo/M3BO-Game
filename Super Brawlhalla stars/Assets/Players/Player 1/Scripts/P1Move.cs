@@ -5,6 +5,8 @@ using UnityEngine;
 public class P1Move : MonoBehaviour
 {
     private Rigidbody2D rb;
+    Animator animat;
+
     public float moveSpeed = 10;
     public float rbacceleration = 5;
     public float rbdecceleration = 5;
@@ -17,6 +19,7 @@ public class P1Move : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animat = GameObject.Find("animator1").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,19 +29,21 @@ public class P1Move : MonoBehaviour
         {
             moveInput = 1;
             FacingRight = true;
+            animat.SetBool("Still", false);
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
             moveInput = -1;
             FacingRight = false;
+            animat.SetBool("Still", false);
         }
 
         if (Input.GetKey(KeyCode.D) == false && Input.GetKey(KeyCode.A) == false)
         {
             moveInput = 0;
+            animat.SetBool("Still", true);
         }
-     
-
+        
         //calculate the direction we want to move in and our desired velocity
         float targetSpeed = moveInput * moveSpeed;
         //calculate difference between current velocity and desired velocity
@@ -47,18 +52,19 @@ public class P1Move : MonoBehaviour
         float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? rbacceleration : rbdecceleration;
         float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
         rb.AddForce(movement * Vector2.right);
+        animat.SetFloat("Speed", Mathf.Abs(movement));
     }
 
     public bool FacingRight
+    {
+        get {return facingRight;}
+        set
         {
-            get {return facingRight;}
-            set
+            if (facingRight != value)
             {
-                if (facingRight != value)
-                {
-                    facingRight = value;
-                    transform.Rotate(0,180,0);
-                }
+                facingRight = value;
+                transform.Rotate(0,180,0);
             }
         }
+    }
 }

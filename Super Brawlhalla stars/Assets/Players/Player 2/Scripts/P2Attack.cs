@@ -25,7 +25,7 @@ public class P2Attack : MonoBehaviour
     void Start()
     {
         hand = GameObject.Find("P2 Hand");
-        hpScript = GameObject.Find("Player1").GetComponent<P1Health>();
+        hpScript = GameObject.Find("Player1").GetComponent<P1Health>(); // zorg dat je toegang hebt tot het P1Health script
     }
 
     // Update is called once per frame

@@ -6,6 +6,7 @@ public class P1Attack : MonoBehaviour
 {
     public GameObject hand;
     private P2Health hpScript;
+    Animator animat;
 
     public Transform upAttack;
     public Transform frontAttack;
@@ -27,6 +28,7 @@ public class P1Attack : MonoBehaviour
     {
         hand = GameObject.Find("P1 Hand");
         hpScript = GameObject.Find("Player2").GetComponent<P2Health>();
+        animat = GameObject.Find("animator1").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -66,7 +68,7 @@ public class P1Attack : MonoBehaviour
     {
         
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, DamageCollisions);
-
+        animat.SetTrigger("Attack1");
         foreach(Collider2D enemy in hitEnemies)
         {
             Debug.Log("Succesful hit");
