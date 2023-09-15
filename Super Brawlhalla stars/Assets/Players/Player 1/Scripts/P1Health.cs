@@ -9,9 +9,9 @@ public class P1Health : MonoBehaviour
     public float knockbackPowerUp;
     public int maxHealth = 100;
     int currentHealth;
-    int attackPosition = 0;
+    
 
-    public Transform attacker;
+    
     private Rigidbody2D rb;
     
     // Start is called before the first frame update
@@ -25,25 +25,8 @@ public class P1Health : MonoBehaviour
     public void TakeDamage(float damage)
     {
         Debug.Log("Succesful hit");
-        GetAttackerPosition();
+        int attackPosition = gameObject.GetComponent<Getattackerposition>().GetAttackerPosition();
         rb.velocity = new Vector2(knockbackPower * attackPosition, knockbackPowerUp) * dmgCounter;
         dmgCounter += damage;
-    }
-
-    public void GetAttackerPosition()
-    {
-        if (attacker.position.x < transform.position.x)
-        {
-            attackPosition = 1;
-        }
-        else if (attacker.position.x > transform.position.x)
-        {
-            attackPosition = -1;
-        }
-    }
-
-    void Die()
-    {
-        Debug.Log("K.O");
     }
 }
